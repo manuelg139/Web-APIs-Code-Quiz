@@ -1,0 +1,35 @@
+
+
+.highscore {
+    font-size: 22px; 
+    font: bold;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+.timer {
+    float: right;
+    font-size: 22px; 
+    font: bold;
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#quiz-box{
+    justify-content: center;
+    border:2px solid black;
+    margin: 10%;
+    padding: 10px;
+
+}
+
+p{
+    text-align: center;
+    font-size: 21px; 
+    font-family: 'Nunito', sans-serif;
+
+}
+
+h2{
+    text-align: center;
+}
