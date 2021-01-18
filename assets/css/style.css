@@ -19,17 +19,18 @@
     justify-content: center;
     border:2px solid black;
     margin: 10%;
-    padding: 10px;
-
-}
-
-p{
+    padding: 5%;
+    font-size: 22px; 
     text-align: center;
-    font-size: 21px; 
     font-family: 'Nunito', sans-serif;
 
 }
 
-h2{
-    text-align: center;
+
+
+.quiz-header{
+
+    font-size: 32px; 
+    font: bold;
+    font-family: 'Oswald', sans-serif;
 }

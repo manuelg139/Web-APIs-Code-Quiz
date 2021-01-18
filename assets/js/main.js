@@ -1,7 +1,9 @@
 
 
 // Create HTML and CSS files for instruction page
-// Create HTML for Questions panels with answers list and next button 
+//Set Up Timer fuction and clear out first form of insctructions
+// Create Questions fuctions to pop with startBtn
+
 
 
 var startBtn = document.getElementById("startBtn");
@@ -26,23 +28,30 @@ function setTimer(){
     var secondsLeft = 120;
     var countDown = setInterval(function() {
         secondsLeft--;
-        document.getElementById("timer").innerHTML = secondsLeft + " "
-        +"seconds";
+        document.getElementById("timer").innerHTML = "Hurry Only " + secondsLeft + " "
+        +"seconds left!";
       
-    
+
     
   if(secondsLeft <= 0){
-    clearInterval(countDownTimer);
-    alert("Time is up!");
-    // document.getElementById("time").innerHTML = "Time is up!"
+    clearInterval(countDown);
+    alert("Your Time Is Up!");
 }
     }, 1000);
 };
+
+
+
+
+
+//Pop-Questions
+
+
+
 
 startBtn.addEventListener("click",function(){
 
     start();
     setTimer();
-
 
 })
