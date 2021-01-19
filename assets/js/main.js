@@ -78,17 +78,17 @@ function start(){
 //Set value and conditions to Timer
 function setTimer(){
 
-    var secondsLeft = 10;
+    var secondsLeft = 120;
     var countDown = setInterval(function() {
         secondsLeft--;
-        document.getElementById("timer").innerHTML = "Hurry Only " + secondsLeft + " "
+        document.getElementById("timer").innerHTML = "☞ Hurry Only " + secondsLeft + " "
         +"seconds";
       
 
     
   if(secondsLeft <= 0 || questionNumber === questions.length){
     clearInterval(countDown);
-    timer.textContent = "Game Over";
+    timer.textContent = "☠ G A M E O V E R ☠";
 
 }
     }, 1000);

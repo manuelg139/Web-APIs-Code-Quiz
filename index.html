@@ -22,27 +22,56 @@
 
 
     <title> API Code Quiz</title>
-    <div class="highscore" >
-        <a href="#"> View Highscores</a>
-        <span id ="timer">Time: 0</span>
-    </div>
+    
 </head>
 
     <body  class="body-bg" >
+        <div class="highscore" >
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="./assets/images/view-high-score.gif" class="ViewHighScore"  alt="ViewHighScore">
+                </div>
+                <div class="col-lg-5">
+                    <img src="./assets/images/Dunder-Mifflin-Logo.jpg" class="img-logo" alt="Dunder-Mifflin-Logo">
+                </div>    
+                <div class="col-lg-4">
+                <span id ="timer">Time: 0</span>
+                </div>
+            </div>    
+        </div>
 
-        
+<div class="container content-wrap">
+
 
     <div class="container" id= "Instructions"> 
 
-        <div class="row" id="quiz">
-            <div class="col-10 col-lg-8">
-                
-                <h2 class="quiz-header"> Test Your Knowledge!</h2><br>
+        <div class="row" id="DunderMifflin">
+            <div class="col-10 col-lg-12">
+            </div>
+        </div>
 
-                <p>
-                   You have two minutes to answer all the following questions correctly. 
-                   But if you miss one... a 15sec time penalty wil be taken off. So choose wisely!
-                   <br><br><br>
+        <div class="row" id="quiz">
+            <div class="col-10 col-lg-12">
+                
+                <h2 class="quiz-header"> So You Think You Know The Office Huhh???</h2><br>
+
+                <p><br> 
+                    <br>
+                   
+                    
+                    If You Can Answer All 10 Of These "The Office" Trivia Questions, You'll Have Bragging Rights For Life!!
+                    
+                    <br>
+                    <br> 
+                    You have 2 minutes to answer... but if you get one question wrong. There will be a 20sec penalty. 
+                    <br> 
+                    <br>
+                    
+                    Good Luck!!!
+                    
+                   <br>
+                   <br>
+                   <br>
                 <button type="button" id="startBtn"  class="btn btn-primary btn-lg btn-block"> START QUIZ </button>
                 </p> <br>
             </div>
@@ -58,8 +87,12 @@
 
 
     <div class="container hide" id="question-box" >
+        <div class="row" id="DunderMifflin">
+            <div class="col-10 col-lg-123">
+            </div>
+        </div>
         <div class="row" id="quiz">
-        <div class="col-10 col-lg-8">
+        <div class="col-10 col-lg-12">
 
             <h2 class="quiz-header"> How well do you know The Office? </h2><br>
             <h3 id="questions" >  </h3></div></br>
@@ -82,14 +115,28 @@
 
     <script src="./assets/js/main.js"></script>
 
-    </body>
+
+</div>
+
+</body>
+<footer>
 
 
-<script>
+  <footer>
 
-
-</script>
-
-
-
+        
+    <div id="footer" >
+        <div class="row">
+            <div class="col-lg-3">
+                
+            </div>
+            <div class="col-lg-5">
+                <img src="./assets/images/Dunder_Mifflin,_Inc.svg.png" class="" alt="Dunder-Mifflin-Logo">
+            </div>    
+            <div class="col-lg-4">
+           
+            </div>
+        </div>    
+    </div>  
+</footer>
 </html>

@@ -1,25 +1,67 @@
 
 
+.body-bg{
+    background-color: #d66e3e;
+}
+
+.content-wrap {
+    background: url(../images/OfficeBackground.jpeg);
+    max-width: 90%;  
+     margin-top:70px;
+     height: 650px;;
+    background-size: cover;
+    background-position: center;
+
+
+}
+html {
+    cursor: url('../images/dwight-cursor.png'), auto;
+    height: 100%;
+   }
+
 .highscore {
     font-size: 22px; 
+    line-height: 60px;
+    background-color: black;
     font: bold;
     font-family: 'Oswald', sans-serif;
+}
 
+.img-logo{
+    float: left;
+    max-height: 100px;
+    margin-left: 20px;
+}
+.ViewHighScore{
+    float: left;
+    max-height: 100px;
+    margin-left: 60px;
+
+}
+
+#footer{
+    margin-top: 65px;
+    background-attachment: fixed;
+    background-color: black;
+    line-height: 25px;
 }
 
 #timer {
     float: right;
-    font-size: 22px; 
+    font-size: 50px; 
+    color: white;
     font: bold;
-    margin-right: 10px;
+    margin-top: 18px;
+    margin-right: 30px;
     font-family: 'Oswald', sans-serif;
 }
 
 #quiz{
-    justify-content: center;
-    margin: 10%;
-    padding: 5%;
+    background-color: white;
+    margin: 7%;
+    padding: 35px 25px 25px 25px;
     font-size: 22px; 
+    height: 450px;
     text-align: center;
     font-family: 'Nunito', sans-serif;
 
@@ -30,6 +72,9 @@
 
     font-size: 32px; 
     font: bold;
+    color: white;
+    background-color: black;
+    line-height: 45px;
     font-family: 'Oswald', sans-serif;
 }
 
