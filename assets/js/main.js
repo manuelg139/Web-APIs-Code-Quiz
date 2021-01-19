@@ -8,8 +8,54 @@
 
 var startBtn = document.getElementById("startBtn");
 var timerEl = document.getElementById("timer");
-var quizEl = document.getElementById("quiz");
 var instructions = document.getElementById("Instructions");
+var questionbox = document.getElementById("question-box");
+var answerChoices = document.getElementById("choices");
+var questionText = document.getElementById("questions");
+var answerBtns = document.getElementById("answerchoice");
+
+
+//  Questions
+
+var questions = [
+    {
+    q: "",
+    c: "",
+    a: "",
+    },
+
+    {
+    q: "",
+    c: "",
+    a: "",
+    },   
+    
+    {
+    q: "",
+    c: "",
+    a: "",
+    },    
+    
+    {
+    q: "",
+    c: "",
+    a: "",
+    },    
+
+    {
+    q: "",
+    c: "",
+    a: "",
+    },
+    
+    {
+    q: "",
+    c: "",
+    a: "",
+    },    
+]
+
+
 
 
 
@@ -18,8 +64,10 @@ var instructions = document.getElementById("Instructions");
 
 //Clear out form as we start
 function start(){
-    startBtn.remove();
-    instructions.remove();
+    
+    instructions.classList.add('d-none');
+    questionbox.classList.remove('hide');
+
 }
   
 //Set value and conditions to Timer
@@ -29,7 +77,7 @@ function setTimer(){
     var countDown = setInterval(function() {
         secondsLeft--;
         document.getElementById("timer").innerHTML = "Hurry Only " + secondsLeft + " "
-        +"seconds left!";
+        +"seconds";
       
 
     
@@ -44,14 +92,10 @@ function setTimer(){
 
 
 
-//Pop-Questions
-
-
-
-
 startBtn.addEventListener("click",function(){
 
     start();
     setTimer();
+
 
 })

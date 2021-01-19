@@ -17,7 +17,6 @@
 
 #quiz{
     justify-content: center;
-    border:2px solid black;
     margin: 10%;
     padding: 5%;
     font-size: 22px; 
@@ -27,10 +26,14 @@
 }
 
 
-
 .quiz-header{
 
     font-size: 32px; 
     font: bold;
     font-family: 'Oswald', sans-serif;
 }
+
+
+.hide {
+    display: none;
+  }
