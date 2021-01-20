@@ -32,6 +32,17 @@ html {
     max-height: 100px;
     margin-left: 20px;
 }
+
+
+.img-logo-hs{
+    max-height: 110px;
+    margin-left: 40px;
+    margin-top: 10px;
+    
+}
+
+
+
 .ViewHighScore{
     float: left;
     max-height: 100px;
@@ -60,13 +71,24 @@ html {
     background-color: white;
     margin: 7%;
     padding: 35px 25px 25px 25px;
+    font-size: 20px; 
+    font:bold;
+    height: 480px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+#score-box{
+    background-color: white;
+    margin: 7%;
+    padding: 35px 25px 25px 25px;
     font-size: 22px; 
     height: 450px;
     text-align: center;
     font-family: 'Nunito', sans-serif;
 
 }
-
 
 .quiz-header{
 

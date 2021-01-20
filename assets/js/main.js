@@ -2,8 +2,11 @@
 
 // Create HTML and CSS files for instruction page
 //Set Up Timer fuction and clear out first form of insctructions
-// Create Questions fuctions to pop with startBtn
-
+// Create Questions fuctions to pop with startBtn and append the choices buttons 
+//Add event to correct answer and respond feednback
+//create HTML elements for Highscores Page
+//Add formula for calculating the scores 
+// Set up local storage for highscores
 
 
 var startBtn = document.getElementById("startBtn");
@@ -11,17 +14,21 @@ var timerEl = document.getElementById("timer");
 var instructions = document.getElementById("Instructions");
 var questionbox = document.getElementById("question-box");
 var answerChoices = document.getElementById("answers");
+var userScoreElement = document.getElementById("user-score");
 var questionHead = document.getElementById("questions");
+var submitBtn = document.getElementById("submitBtn");
+var submitbox = document.getElementById("submit-score");
 
-// was starting at one 
+
+
+
+
 var questionNumber = -1;
+var userNameInput;
 var answer;
 
 
 //  Questions
-
-
-
 var questions = [
     {
     title: "What does Michael pretend to fire Pam over in season one?",
@@ -91,8 +98,6 @@ var questions = [
 
 
 //Timer 
-
-
 //Clear out form as we start
 function start(){
     
@@ -107,18 +112,19 @@ function start(){
 //Set value and conditions to Timer
 function setTimer(){
 
-    var secondsLeft = 120;
+    var secondsLeft = questions.length * 1 + 1
     var countDown = setInterval(function() {
         secondsLeft--;
-        document.getElementById("timer").innerHTML = "☞ Hurry Only " + secondsLeft + " "
+        timerEl.textContent = "☞ Hurry Only " + secondsLeft + " "
         +"seconds";
       
 
     
-  if(secondsLeft <= 0 || questionNumber === questions.length){
+  if(secondsLeft === 0 || questionNumber === questions.length){
     clearInterval(countDown);
     timer.textContent = "☠ G A M E O V E R ☠";
-
+    displayScore();
+//secondsleft is runing displayScore - question == q.l is not
 }
     }, 1000);
 };
@@ -137,7 +143,7 @@ function popQuestions() {
 
     // answer is the question
     answer = questions[questionNumber].answer
-
+    console.log(questions[questionNumber]);
     // displays questions and clears html content
     questionHead.textContent = questions[questionNumber].title;
     answerChoices.innerHTML = "";
@@ -151,14 +157,12 @@ function popQuestions() {
 
         // buttons contain choices
         nextChoice.textContent = choices[i]
-        answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
+        answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-dark btn-block");
+        console.log("Answer is   " + questions[questionNumber].answer)
+
     }
 
 }
-
-
-
-
 
 // Validating the right answers and moving on to next question
 answerChoices.addEventListener("click", function (event) {
@@ -168,16 +172,57 @@ answerChoices.addEventListener("click", function (event) {
     
      // evaluation of user's answer choices & feedback
      if (answer === event.target.textContent) {   
-        feedbackEl.innerHTML = "<img src='https://github.com/manuelg139/Web-APIs-Code-Quiz/blob/main/assets/images/dwight-cursor.png'>";
-    
+        feedbackEl.innerHTML = "CORRECT.";
+        showFeedback();   
     } else {
         feedbackEl.innerHTML = "WRONG.";
-      
+        showFeedback();
     }    
+    /* function hideFeedback(){
+        var pElement = document.getElementsByClassName("feedback")[0]
+        pElement.style.display='none'
+    } */
+    
+    function showFeedback(){
+        var pElement = document.getElementsByClassName("feedback")[0]
+        pElement.removeAttribute('style');
+    }
+    
+    
     popQuestions();  
-
 });
 
 
 
+function addScore(){
+    userNameInput = document.getElementById("userName").value 
+    console.log(userName.value)
+    scoreAdded // need a formula maybe or ot might
+
+    //create an object to store new local scores
+    var newScore = {
+        name: userNameInput,
+        score: scoreAdded,
+    };
+    //Make an array and push object in it 
+    // hs = the current scores on local storage and the new scores
+    var highScores = JSON.parse(localStorage.getItem(highScores) || "[]");
+    highScores.push(newScore)
+    //stringify and put into LS
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+}
+
+function displayScore(){
+    questionbox.classList.add('d-none');
+    submitbox.classList.remove('hide');
+    userScoreElement.textContent = "Final Score is... " + addScore + ".";
+}
+
+submitBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+    addScore();
+    
+    window.location.href = './highscores.html'
+});
 

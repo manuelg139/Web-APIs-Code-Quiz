@@ -29,7 +29,7 @@
         <div class="highscore" >
             <div class="row">
                 <div class="col-lg-3">
-                    <img src="./assets/images/view-high-score.gif" class="ViewHighScore"  alt="ViewHighScore">
+                 <img src="./assets/images/view-high-score.gif" class="ViewHighScore"  alt="ViewHighScore">
                 </div>
                 <div class="col-lg-5">
                     <img src="./assets/images/Dunder-Mifflin-Logo.jpg" class="img-logo" alt="Dunder-Mifflin-Logo">
@@ -57,17 +57,17 @@
             <div class="col-10 col-lg-12">
                 
                 <h2 class="quiz-header"> So You Think You Know The Office Huhh???</h2><br>
-                <p><br>   <br>
+                <p>
                     If You Can Answer All 10 Of These "The Office" Trivia Questions, You'll Have Bragging Rights For Life!
-                    <br>  <br>
+                    <br> 
                     You have 2 minutes to answer... but if you get one question wrong. There will be a 20sec penalty. 
                     <br> <br> Good Luck!!! <br><br>
                 <button type="button" id="startBtn"  class="btn btn-primary btn-lg btn-block"> START QUIZ </button>
+                <br> <br>
+                <img src="./assets/images/honorlist-office.gif"   alt="HonorList">
                 </p> <br>
             </div>
         </div>
-
-
     </div>
 
 
@@ -75,7 +75,7 @@
 
     <!-- Question Container-->
     <div class="container hide" id="question-box" >
-        <div class="row" id="DunderMifflin">
+        <div class="row">
             <div class="col-10 col-lg-123">
             </div>
         </div>
@@ -98,8 +98,23 @@
     </div>
 
 
-
-
+<!-- Highscores Page-->
+    <div class="container hide " id="submit-score" >
+        <div class="row" id="score-box">
+            <div class="col-10 col-lg-12">
+                <h2 class="quiz-header"> Not too bad. Let's see your scores!!</h2><br>
+                <p id="user-score"></p>
+                <form class="form-group">
+                    <label for="new-score"> Enter Your Name </label>
+                    <input type="text" id="userName"><br/><br/>
+                    <button type="button" id="submitBtn"> Join The Office Dundies Hall of Fame</button>
+                    <br/>
+                </form>
+            </div>
+        </div>
+    
+    
+    </div>
 
 
     <script src="./assets/js/main.js"></script>
