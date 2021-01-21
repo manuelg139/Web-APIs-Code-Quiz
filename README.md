@@ -8,6 +8,10 @@ I chose to do an Office theme quiz with animated images and interactive interfac
 Unfortunately due to time I could nto get the timer to decrease 20pts nor add up the score to add up into the Dundes Honor List. 
 Hoping to continue to work on this and finish it in the future for my portafolio. 
 
+Link: https://manuelg139.github.io/Web-APIs-Code-Quiz/
+
+Screenshots:
+
 <img width="1668" alt="Screen Shot 2021-01-20 at 11 53 46 PM" src="https://user-images.githubusercontent.com/75399668/105286649-58463300-5b7c-11eb-8db2-e45ec51dc4fb.png">
 
 <img width="1671" alt="Screen Shot 2021-01-20 at 11 54 01 PM" src="https://user-images.githubusercontent.com/75399668/105286648-57ad9c80-5b7c-11eb-8b7c-8833586fecb1.png">
