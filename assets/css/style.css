@@ -81,7 +81,7 @@ html {
 
 #score-box{
     background-color: white;
-    margin: 7%;
+    margin-top: -550px;
     padding: 35px 25px 25px 25px;
     font-size: 22px; 
     height: 450px;

@@ -10,22 +10,20 @@
 
 
 var startBtn = document.getElementById("startBtn");
-var timerEl = document.getElementById("timer");
+var submitBtn = document.getElementById("submitBtn");
 var instructions = document.getElementById("Instructions");
 var questionbox = document.getElementById("question-box");
-var answerChoices = document.getElementById("answers");
-var userScoreElement = document.getElementById("user-score");
-var questionHead = document.getElementById("questions");
-var submitBtn = document.getElementById("submitBtn");
+var timerEl = document.getElementById("timer");
 var submitbox = document.getElementById("submit-score");
+var userScoreElement = document.getElementById("user-score");
 
-
-
-
+var questionHead = document.getElementById("questions");
+var answerChoices = document.getElementById("answers");
 
 var questionNumber = -1;
-var userNameInput;
 var answer;
+var userNameInput;
+
 
 
 //  Questions
@@ -105,34 +103,29 @@ function start(){
     questionbox.classList.remove('hide');
    
 
-    setTimer();
+    startTimer();
     popQuestions();
 }
   
-//Set value and conditions to Timer
-function setTimer(){
 
-    var secondsLeft = questions.length * 1 + 1
+//Set value and conditions to Timer
+function startTimer(){
+
+    var secondsLeft = (questions.length * 20 + 1);
     var countDown = setInterval(function() {
         secondsLeft--;
         timerEl.textContent = "☞ Hurry Only " + secondsLeft + " "
         +"seconds";
       
-
-    
-  if(secondsLeft === 0 || questionNumber === questions.length){
-    clearInterval(countDown);
-    timer.textContent = "☠ G A M E O V E R ☠";
-    displayScore();
-//secondsleft is runing displayScore - question == q.l is not
-}
+        if(secondsLeft === 0 || questionNumber === questions.length){
+        clearInterval(countDown);
+        timer.textContent = "☠ G A M E O V E R ☠";
+        scoreList();
+          //secondsleft is runing displayScore - question == q.l is not
+    }
     }, 1000);
 };
 
-
-
-// Event Listeners for Buttons
-startBtn.addEventListener("click", start);
 
 
 
@@ -142,8 +135,9 @@ function popQuestions() {
     questionNumber++;
 
     // answer is the question
-    answer = questions[questionNumber].answer
+    answer = questions[questionNumber].answer;
     console.log(questions[questionNumber]);
+    console.log("Answer is   " + questions[questionNumber].answer) 
     // displays questions and clears html content
     questionHead.textContent = questions[questionNumber].title;
     answerChoices.innerHTML = "";
@@ -152,11 +146,11 @@ function popQuestions() {
     var choices = questions[questionNumber].choices;
 
 //loop choices and append as buttons
-    for (var i = 0; i < choices.length; i++) {
+    for (var q = 0; q < choices.length; q++) {
         var nextChoice = document.createElement("button");
 
         // buttons contain choices
-        nextChoice.textContent = choices[i]
+        nextChoice.textContent = choices[q]
         answerBtn = answerChoices.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-dark btn-block");
         console.log("Answer is   " + questions[questionNumber].answer)
 
@@ -164,45 +158,15 @@ function popQuestions() {
 
 }
 
-// Validating the right answers and moving on to next question
-answerChoices.addEventListener("click", function (event) {
 
-    // Creating the feedback for the R/W Answers
-    var feedbackEl = document.getElementsByClassName("feedback")[0]
-    
-     // evaluation of user's answer choices & feedback
-     if (answer === event.target.textContent) {   
-        feedbackEl.innerHTML = "CORRECT.";
-        showFeedback();   
-    } else {
-        feedbackEl.innerHTML = "WRONG.";
-        showFeedback();
-    }    
-    /* function hideFeedback(){
-        var pElement = document.getElementsByClassName("feedback")[0]
-        pElement.style.display='none'
-    } */
-    
-    function showFeedback(){
-        var pElement = document.getElementsByClassName("feedback")[0]
-        pElement.removeAttribute('style');
-    }
-    
-    
-    popQuestions();  
-});
-
-
-
-function addScore(){
+function totalScore(){
     userNameInput = document.getElementById("userName").value 
     console.log(userName.value)
-    scoreAdded // need a formula maybe or ot might
 
     //create an object to store new local scores
     var newScore = {
         name: userNameInput,
-        score: scoreAdded,
+        score: secondsLeft,
     };
     //Make an array and push object in it 
     // hs = the current scores on local storage and the new scores
@@ -213,16 +177,55 @@ function addScore(){
 
 }
 
-function displayScore(){
+// Validating the right answers and moving on to next question
+answerChoices.addEventListener("click", function (event) {
+    // Creating the feedback for the R/W Answers
+    var feedbackEl = document.getElementsByClassName("feedback")[0]
+    var answer = questions[questionNumber].answer;
+     // evaluation of user's answer choices & feedback
+     if (answer === event.target.textContent) {   
+        feedbackEl.innerHTML = "You Are Correct <br><br> <img src=\"https://media3.giphy.com/media/nGzeO4uSxRUcg/giphy.gif\" height=\"150px\">";
+        setTimeout(hideFb, 4000);
+        showFb();   
+    } else {
+        feedbackEl.innerHTML = "You Are Wrong <br><br> <img src=\"https://i.pinimg.com/originals/07/99/fb/0799fb6840eb887526c61784c431e655.gif\" height=\"150px\">";
+       // this.secondsLeft = secondsLeft - 20; not working
+       setTimeout(hideFb,4000);
+        console.log(this.secondsLeft)
+        showFb();
+    }    
+  
+    
+    setTimeout(popQuestions, 4000); // matching the timer for the gif feedback
+});
+
+
+
+function scoreList(){
     questionbox.classList.add('d-none');
     submitbox.classList.remove('hide');
-    userScoreElement.textContent = "Final Score is... " + addScore + ".";
+    userScoreElement.textContent = "Final Score is... " + secondsLeft + ".";
 }
 
+
+// Event Listeners for Buttons
+startBtn.addEventListener("click", start);
 submitBtn.addEventListener("click", function (event) {
-    event.stopPropagation();
-    addScore();
-    
+    totalScore();
+
     window.location.href = './highscores.html'
 });
+
+
+function showFb() {
+    var feedbackEl = document.getElementsByClassName("feedback")[0]
+    feedbackEl.removeAttribute('style');
+}
+function hideFb(){
+    var pElement = document.getElementsByClassName("feedback")[0]
+    pElement.style.display='none'
+}
+
+
+
 
